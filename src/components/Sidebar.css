@@ -1,0 +1,172 @@
+/* Sidebar default styling */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #4e73df;
+  color: white;
+  padding-top: 20px;
+  transition: width 0.3s, left 0.3s;
+}
+
+/* Sidebar when collapsed */
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* Sidebar when hidden on mobile */
+.sidebar.hidden {
+  left: -250px;
+  position: absolute;
+}
+
+/* Sidebar header */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+.sidebar.collapsed .sidebar-header {
+  justify-content: center !important;
+}
+
+/* Button to toggle the sidebar's collapse state */
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Default styling for sidebar links */
+.nav-link {
+  color: white !important;
+  display: flex !important;
+  align-items: center;
+  font-size: 1rem !important;
+  cursor: pointer;
+  transition: all 0.3s !important;
+}
+
+.nav-link span {
+  margin-left: 10px;
+}
+
+/* Hover effect for links */
+.nav-link:hover {
+  background-color: #3a51b0;
+}
+
+/* Dropdown arrow styling */
+.dropdown-arrow {
+  margin-left: auto;
+  transition: transform 0.3s;
+}
+
+/* Dropdown items */
+.dropdown-items {
+  padding-left: 30px;
+  margin-top: 5px;
+}
+
+/* Dropdown item links */
+.dropdown-item {
+  color: white;
+  padding: 5px 0;
+  display: block;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover {
+  color: #adb5bd;
+}
+
+/* Center the icons when the sidebar is collapsed */
+.sidebar.collapsed .nav-link {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.sidebar.collapsed .nav-link span {
+  display: none;
+}
+
+/* Hide dropdown items when the sidebar is collapsed */
+.sidebar.collapsed .dropdown-items {
+  display: none;
+}
+
+/* Button to toggle the sidebar visibility */
+.toggle-visibility-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  position: fixed;
+  top: 15px;
+  left: 10px;
+  z-index: 1001;
+}
+.toggle-visibility-btn.text-primary {
+  line-height: 56px;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  /* Make the sidebar hidden by default on mobile */
+  .sidebar {
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    width: 250px;
+  }
+
+  /* Full-width sidebar when toggled */
+  .sidebar.collapsed {
+    width: 250px;
+  }
+
+  /* Display the toggle button on mobile */
+  .toggle-visibility-btn {
+    display: block;
+  }
+  .sidebar-header .toggle-btn {
+    display: none;
+  }
+  .sidebar-header h2 {
+    margin-left: 35px;
+  }
+
+  /* Main content without sidebar on mobile */
+  .main-content {
+    margin-left: 0;
+    transition: margin-left 0.3s;
+  }
+
+  /* Adjust main content margin when the sidebar is hidden */
+  .sidebar.hidden + .main-content {
+    margin-left: 0;
+  }
+
+  /* Adjust main content margin when the sidebar is visible */
+  .sidebar:not(.hidden) + .main-content {
+    margin-left: 250px;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Default state for the main content when the sidebar is expanded */
+  .main-content {
+    /* margin-left: 250px; */
+    transition: margin-left 0.3s;
+  }
+
+  /* Adjust the main content margin when the sidebar is collapsed */
+  .sidebar.collapsed + .main-content {
+    margin-left: 80px;
+  }
+}

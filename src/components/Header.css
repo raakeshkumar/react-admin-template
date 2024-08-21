@@ -1,0 +1,29 @@
+.top-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #343a40;
+  display: flex;
+  align-items: center;
+}
